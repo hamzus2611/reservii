@@ -1,0 +1,10 @@
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0px;
+  margin:0px;
+  width:100%;
+  font-family: "Poppins", sans-serif;
+}
+

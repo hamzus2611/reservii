@@ -1,0 +1,246 @@
+ .Movie-Containers {
+    // background-image: url("../../../public/1.PNG");
+  width: 100%;
+  max-width: 100%;
+  margin: auto;
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center; 
+}
+@media screen and (min-width: 700px) {
+  .Movie-Containers {
+    // bottom: 100%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cellAction {
+    top: 1px;
+  }
+}
+@media only screen and (max-width: 709px) {
+  .Containers {
+    position: absolute;
+    bottom: 100%;
+  }
+  .Movie-Containers {
+    bottom: 90%;
+    top: 90%;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .cellAction {
+    top: 100%;
+  }
+}
+.Movie-Containers {
+  padding: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  width: 100%;
+  margin-top: 50px;
+  transform: translate(-50%, -50%);
+  // max-width: 800px; 
+  display: flex;
+  flex-wrap: wrap;
+  // justify-content: space-between;
+} 
+
+
+$background: #F0F0F0;
+$white: rgb(250, 250, 250);
+$black: #000;
+$grey: #666;
+$accent: #cf092c;
+
+$font-bold: 700;
+
+$time: 0.3s;
+$easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+@mixin shadow {
+  box-shadow: 0 30px 25px -20px rgba($black, 0.15);
+}
+
+@mixin shadow-dark {
+  box-shadow: 0 36px 28px -20px rgba($black, 0.20);
+}
+
+%caps {
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-weight: $font-bold;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+.product{
+  top: 100px;
+  height: inherit;
+  height: 70%;
+img {
+  max-width: 600px;
+  height:85%;
+  vertical-align: top;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+p {
+  margin: 0 0 1.5em 0;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+}
+.btn {
+  display: inline-block;
+  color: $white;
+  text-align: center;
+  padding: 1.75em 3.5em;
+  white-space: nowrap;
+  border-radius: 5px;
+  @extend %caps;
+}
+
+.product {
+  position: relative;
+  width: 440px;
+  padding: 20px;
+  border-radius: 2px;
+  background-color: $white;
+  // transition: box-shadow $time $easing;
+  // @include shadow;
+}
+
+.product__image {
+  // width: 200%;
+  margin-left: -20%;
+  margin-right: -20%;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  max-width: none;
+}
+
+.product__title {
+  margin-top: 8px;
+  font-size: 30px;
+  color: #464a86;
+  // margin: 0 0 0.5em 0;
+  line-height: 1.1;
+}
+
+.product__price {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -30px;
+  left: -30px;
+  width: 80px;
+  height: 80px;
+  background-color: rgba(#464a86, 0.95);
+  color: $white;
+  border-radius: 50%;
+  border-color: #464a86;
+  @extend %caps;
+}
+
+.product__category {
+  display: block;
+  color: #F0F0F0;
+  margin-bottom: 1em;
+  @extend %caps;
+}
+
+.product__btn {
+  position: absolute;
+  // bottom: 230px;
+  right: 50px;
+  background-color: rgba(#464a86, 0.95);
+  transition: background-color $time $easing, box-shadow $time $easing;
+  @include shadow;
+  
+  &:hover {
+    @include shadow-dark;
+    background-color: mix(#464a86, #464a86, 95%);
+  }
+}
+
+
+.flip-card-front-img {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+}
+
+// body {
+//   font-family: -apple-system, ".SFNSText-Regular", 'Helvetica Neue', sans-serif;
+//   line-height: 1.5;
+//   color: $grey;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: $background;
+//   // -webkit-filter: hue-rotate(-90deg);
+// }
+
+/*.flip-card {
+  flex: 1;
+  flex-basis: 300px;
+  flex-grow: 0;
+  height: 200px;
+  background: #3d3d3d;
+  border: 2px solid #fff;
+  box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  overflow: hidden;
+  position: relative;
+}
+
+
+.flip-card-back {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  height: 100%;
+  transition: all 0.7s ease-in-out;
+  padding: 20px;
+  box-sizing: border-box;
+  clip-path: circle(0% at 100% 100%);
+}
+
+.flip-card:hover .flip-card-back {
+  left: 0px;
+  transition: all 0.7s ease-in-out;
+  clip-path: circle(75%);
+}
+
+.flip-card:hover {
+  transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+  transform: scale(0.97);
+}
+.flip-card:hover img {
+  transition: all 0.5s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+  transform: scale(1.6) rotate(20deg);
+  filter: blur(3px);
+}
+
+.flip-card h1 {
+  letter-spacing: 1px;
+  margin: 0px;
+  padding: 10px;
+}
+.flip-card p {
+  line-height: 24px;
+  height: 70%;
+}
+/* */

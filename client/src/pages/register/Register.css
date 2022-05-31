@@ -1,0 +1,78 @@
+
+.bodyR {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+		flex-direction: column; 
+  width:100%;
+  /* background-image: url("../../../public/1.PNG"); */
+	height: 100vh;
+}
+
+.TitR{
+	text-align: center;
+ padding: 10px;
+	margin:20px;
+ 
+}
+
+.titreR{
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
+font-size: 	60px;
+color: #464a86;
+}
+
+.FormR{
+	justify-content: center;
+	display: flex;
+		height: 100%;
+	text-align: center;
+}
+
+.inputR {
+	background-color: rgb(238, 238, 238);
+	border: none;
+	padding:15px;
+	margin: 15px 15px;
+	width: 90%;
+	border-color: #d9c2d2;
+ border-radius: 30px;
+			font-size: 20px;
+}
+
+.labelR{
+			font-size: 22px;
+			color: #464a86;
+			font-weight: bold;
+}
+
+.motpassR{
+	width: 35%;
+}
+.choiceR{
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
+
+.buttonR{
+		font-size: 15px;
+		align-items: center;
+	justify-content: center;
+		padding:10px 30px;
+	margin: 20px 0 20px 0 ;
+	background-color: #eee;
+	border-radius: 30px;
+	border-color: #d9c2d2;
+}
+
+.choiceBR{
+		font-size: 20px;
+		align-items: center;
+	justify-content: center;
+	color: #464a86;
+}

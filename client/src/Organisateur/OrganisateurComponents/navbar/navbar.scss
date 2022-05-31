@@ -1,0 +1,28 @@
+.navbarH {
+  height: 60px;
+  border-bottom: 0.5px solid rgb(231, 228, 228);
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+
+  .wrapperH {
+
+    .searchH {
+      display: flex;
+      align-items: center;
+      border: 0.5px solid rgb(255, 255, 255);
+      padding: 0;
+
+      .inputH {
+        border: none;
+        outline: none;
+        background: transparent;
+
+        &::placeholderH {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

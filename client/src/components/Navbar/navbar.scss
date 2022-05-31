@@ -1,0 +1,41 @@
+.navD {
+  .me-2{
+    height: 45px;
+    width: 260px;
+    border-radius: 20px;
+        color: #464a86;
+    border-color: #d9c2d2;
+  }
+  button{
+    border-radius: 20px;
+    color: #464a86;
+    border-color: #d9c2d2;
+  
+    font-size: 20px;
+  }
+  button:hover {
+  background-color: #464a86;
+  color: white;
+}
+.dropdownC {
+  height: inherit;
+  .imgC{
+    display: flex;
+    height: 50px;
+    width: 50px;
+  }
+  .dropdownN{
+    font-size: 20px;
+    .dropdown-menu{
+    border-radius: 20px;
+    color: #000000;
+    border-color: #d9c2d2;
+  }
+    a:hover {
+    border-radius: 20px;
+    background-color: #464a869c;
+    color: white;
+  }
+  }
+}
+}
