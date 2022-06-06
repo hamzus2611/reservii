@@ -6,7 +6,10 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import React, { useEffect } from "react";
-import { AcceptOrganisateur, getDemandeOrganizateur } from "../../../redux/Action/UserAction";
+import {
+  AcceptOrganisateur,
+  getDemandeOrganizateur,
+} from "../../../redux/Action/UserAction";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
@@ -14,14 +17,13 @@ const Datatable = () => {
   const { Loading, users, error } = useSelector((state) => state.User_Select);
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
-
   useEffect(() => {
     dispatch(getDemandeOrganizateur(token));
   }, []);
-  
+
   const handleSubmit = (id) => {
     dispatch(AcceptOrganisateur(id));
-    console.log(id)
+    console.log(id);
   };
 
   const actionColumn = [
@@ -35,7 +37,8 @@ const Datatable = () => {
             <Button
               onClick={() => handleSubmit(params.row._id)}
               variant="contained"
-              color="success">
+              color="success"
+            >
               Confirmer
             </Button>
             <Button variant="outlined" color="error">
@@ -49,15 +52,16 @@ const Datatable = () => {
   return (
     <div>
       {Loading ? (
-        <h1 className="text" >
+        <h1 className="text">
           {" "}
-          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"
+            alt=""
+          />
         </h1>
       ) : (
         <div className="datatable">
-          <div className="datatableTitle">
-            Les Demandes
-          </div>
+          <div className="datatableTitle">Les Demandes</div>
           <DataGrid
             className="datagrid"
             rows={users}

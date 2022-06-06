@@ -1,13 +1,14 @@
 import "./sidebar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import StorefrontIcon from '@mui/icons-material/Storefront';
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import EventIcon from '@mui/icons-material/Event';
+import StorefrontIcon from "@mui/icons-material/Storefront";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import EventIcon from "@mui/icons-material/Event";
 import SettingsApplicationsIcon from "@mui/icons-material/SettingsApplications";
+import MessageIcon from "@mui/icons-material/Message";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import LocalActivityIcon from '@mui/icons-material/LocalActivity';
+import LocalActivityIcon from "@mui/icons-material/LocalActivity";
 // import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
 // import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
@@ -32,9 +33,9 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="top">
-          <span className="logo">Admin</span>
+        <span className="logo">Admin</span>
       </div>
-      <br/>
+      <br />
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
@@ -43,7 +44,12 @@ const Sidebar = () => {
             <Link to="/Admin" style={{ textDecoration: "none" }}>
               <span>Dashboard</span>
             </Link>
-            
+          </li>
+          <li>
+            <MessageIcon className="icon" />
+            <Link to="/admin/Message" style={{ textDecoration: "none" }}>
+              <span>Messages</span>
+            </Link>
           </li>
           <p className="title">LISTS</p>
           <Link to="/Admin/User" style={{ textDecoration: "none" }}>
@@ -59,10 +65,10 @@ const Sidebar = () => {
             </li>
           </Link>
           <Link to="/Admin/Admin" style={{ textDecoration: "none" }}>
-          <li>
+            <li>
               <AdminPanelSettingsIcon className="icon" />
-            <span>Admins</span>
-          </li>
+              <span>Admins</span>
+            </li>
           </Link>
           <Link to="/Admin/Organisateur/inv" style={{ textDecoration: "none" }}>
             <li>
@@ -72,16 +78,16 @@ const Sidebar = () => {
           </Link>
           <p className="title">USEFUL</p>
           <Link to="/Admin/Event" style={{ textDecoration: "none" }}>
-          <li>
+            <li>
               <EventIcon className="icon" />
-            <span>Events</span>
-          </li>
-        </Link>
+              <span>Events</span>
+            </li>
+          </Link>
           <Link to="/Admin/Ticket" style={{ textDecoration: "none" }}>
-          <li>
-            <LocalActivityIcon className="icon" />
-            <span>Ticket</span>
-          </li>
+            <li>
+              <LocalActivityIcon className="icon" />
+              <span>Ticket</span>
+            </li>
           </Link>
           {/* <p className="title">SERVICE</p>
           <li>

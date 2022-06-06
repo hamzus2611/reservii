@@ -29,6 +29,7 @@ import Param from './pages/profile/Param';
 import HomeOrg from "./Organisateur/OrganisateurPages/home/HomeOrg";
 import Tickets from "./Organisateur/OrganisateurPages/Ticket/Ticket";
 import ProfileO from "./Organisateur/OrganisateurPages/profile/ProfileO"
+import Chat from './pages/Chat';
 
 function App() {
 
@@ -49,6 +50,7 @@ function App() {
 
         <Route path="/Admin/">
           <Route index element={<Home />} />
+          <Route path="message" element={<Chat/>}/>
           <Route path="User">
             <Route index element={<User />} />
             <Route path=":userId" element={<Single />} />

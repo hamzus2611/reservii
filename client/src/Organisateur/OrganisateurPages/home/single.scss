@@ -1,11 +1,11 @@
 .singleP {
   display: flex;
+  justify-content: end;
   width: 100%;
   // .singlP{
   //   width: 40px;
   // }
   // background-image: url("../../../../public/1.PNG");
-
   .singleContainerP {
     flex: 6;
 
@@ -23,7 +23,9 @@
         position: relative;
         width: fit-content;
 
-        h3{color: rgba(255, 255, 255, 0);}
+        h3 {
+          color: rgba(255, 255, 255, 0);
+        }
 
         .editButtonPP {
           position: absolute;

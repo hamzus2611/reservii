@@ -11,12 +11,17 @@ import { useDispatch, useSelector } from "react-redux";
 // import Navbar from "../../OrganisteurComponents/navbar/Navbar";
 import SidebarOrginisateur from "../../OrganisateurComponents/sidebar/SidebarOrginisateur";
 import { logoutUser } from "../../../redux/Action/EventAction";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import { getOrganStatus, getuserinfo, statorgan } from "../../../redux/Action/UserAction";
+import {
+  getOrganStatus,
+  getuserinfo,
+  statorgan,
+} from "../../../redux/Action/UserAction";
 
 import "./single.scss";
-
+// import ChatOrganisateur from "../../../pages/ChatOrganisateur";
+import ChatOrganisateur from './../../../pages/Chat/ChatOrganisateur';
 
 const HomeOrg = () => {
   const dispatch = useDispatch();
@@ -35,7 +40,7 @@ const HomeOrg = () => {
 
   const logout = () => {
     dispatch(logoutUser());
-    localStorage.removeItem("token")
+    localStorage.removeItem("token");
     navigate("/login");
     //  <Navigate to="/" />;
   };
@@ -49,10 +54,10 @@ const HomeOrg = () => {
   return (
     <div>
       {loading ? (
-        <h1 className="text" >
+        <h1 className="text">
           {" "}
           <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
-        </h1> 
+        </h1>
       ) : (
         <div>
           {isActivate && token ? (
@@ -76,7 +81,7 @@ const HomeOrg = () => {
                 </div>
               </div>
             </div>
-          ) : (!isActivate && token) ? (
+          ) : !isActivate && token ? (
             <div className="singleP">
               <div className="singleContainerP">
                 <div className="topP">
@@ -89,17 +94,22 @@ const HomeOrg = () => {
                       <h2>Vouz pouvez contacte l'adminisatration de site</h2>
                       <br />
                       <h3>.</h3>
-                      <button onClick={logout} className="editButtonPP" >déconnexion</button>
+                      <button onClick={logout} className="editButtonPP">
+                        déconnexion
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          ) : <Navigate to="/login" />
-          }
+          ) : (
+            <Navigate to="/login" />
+          )}
+          <div className="chat">
+            <ChatOrganisateur />
+          </div>
         </div>
-      )
-      }
+      )}
     </div>
   );
 };

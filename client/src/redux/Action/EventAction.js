@@ -66,6 +66,7 @@ export const getoneevent = (id) => async (dispatch) => {
 }
 export const logoutUser = () => dispatch => {
     localStorage.removeItem("token");
+    localStorage.clear();
     window.location.reload(true);
     dispatch({
         type: LOGOUT

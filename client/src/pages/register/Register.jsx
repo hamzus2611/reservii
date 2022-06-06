@@ -6,7 +6,7 @@ import {
 } from "../../redux/Action/UserAction";
 import { useDispatch, useSelector } from "react-redux";
 import "./Register.css";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -24,10 +24,16 @@ const Register = () => {
   const [Phone, setPhone] = useState("");
   const [Password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   let { Loading, user, error } = useSelector((state) => state.usereducer);
 
   const token = localStorage.getItem("token");
+  useEffect(() => {
+    if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
+      navigate("/");
+    }
+  }, []);
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -82,10 +88,10 @@ const Register = () => {
   return (
     <div className="bodyR">
       {Loading ? (
-        <h1 className="text" >
+        <h1 className="text">
           {" "}
           <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
-        </h1> 
+        </h1>
       ) : token ? (
         users.UserRole == "Admin" ? (
           <Navigate to="/Admin" />
@@ -96,8 +102,8 @@ const Register = () => {
         )
       ) : (
         <div className="R">
-          <form onSubmit={handleLogin} >
-            <div className="TitR" >
+          <form onSubmit={handleLogin}>
+            <div className="TitR">
               <h1 className="titreR">Créez votre compte</h1>
             </div>
             <div className="FormR">
@@ -152,21 +158,16 @@ const Register = () => {
                   <input
                     type="password"
                     className="inputR"
-                  // onChange={(e) => setPassword(e.target.value)}
+                    // onChange={(e) => setPassword(e.target.value)}
                   />
                 </div>
               </div>
             </div>
-            <div style={{ "textAlign": "center" }}>
-
-
-            </div>
+            <div style={{ textAlign: "center" }}></div>
             <div className="choiceR">
               <FormControl sx={{ m: 3 }} Error={Error} variant="standard">
                 <div className="choiceBR">
-                  <FormLabel>
-                    Choisissez le type de compte:
-                  </FormLabel>
+                  <FormLabel>Choisissez le type de compte:</FormLabel>
                   <RadioGroup
                     aria-labelledby="radios"
                     name="userRole"

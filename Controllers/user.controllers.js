@@ -48,12 +48,14 @@ exports.register = async (req, res) => {
     res.send({
       token,
       user: {
+        _id: NewUser._id,
         name: Username,
         lastname: Lastname,
         email: Email,
         phone: Phone,
         isActivated: true,
-        role: UserRole
+        role: UserRole,
+
       }
     });
   } catch (error) {
@@ -83,6 +85,7 @@ exports.login = async (req, res) => {
     res.send({
       token,
       User: {
+        _id: User._id,
         name: User.Username,
         UserRole: User.UserRole,
         lastname: User.Lastname,

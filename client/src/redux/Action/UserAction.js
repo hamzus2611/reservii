@@ -23,6 +23,11 @@ export const register = (NewUser) => async (dispatch) => {
     try {
         let res = await axios.post("user/register", NewUser);
         localStorage.setItem('token', res.data.token)
+        localStorage.setItem(
+            process.env.REACT_APP_LOCALHOST_KEY,
+            JSON.stringify(res.data.User)
+        );
+
         dispatch({
             type: REGISTER_SECCESS,
             payload: res.data
@@ -43,17 +48,16 @@ export const login = (User) => async (dispatch) => {
     try {
         let res = await axios.post("user/login", User);
         localStorage.setItem('token', res.data.token)
-        // localStorage.setItem('user', res.data.User)
+        localStorage.setItem(
+            process.env.REACT_APP_LOCALHOST_KEY,
+            JSON.stringify(res.data.User)
+        );
 
         dispatch({
             type: LOGIN_SECCESS,
             payload: res.data
         });
-        // let navigate = useNavigate()
-        // console.log(res.data.User.UserRole)
-        // if (res.data.User.UserRole === "Admin") {
-        //     navigate('/Admin');
-        // }
+
 
     } catch (error) {
         console.log(error)

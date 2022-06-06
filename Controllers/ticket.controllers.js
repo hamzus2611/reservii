@@ -91,7 +91,7 @@ exports.getTicket = async (req, res) => {
         if (ticket) {
             for (let pas = 0; pas < ticket.length; pas++) {
                 let id = ticket[pas].id_Event.toString();
-                const event = await Event.findOne({ id })
+                const event = await Event.findOne({ "_id":id })
                 console.log(event)
                 if (event) {
                     const ticketinfo = {
@@ -161,3 +161,7 @@ exports.GetTicketinfo = async (req, res) => {
         res.status(500).json({ msg: error.message })
     }
 }
+
+
+
+
